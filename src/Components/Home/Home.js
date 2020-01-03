@@ -22,12 +22,12 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
-      <div className="d-flex flex-row flex-wrap">
-      <div className="col-6">
-        <h1 className="text-center">Dogs</h1>
-      { this.state.dogs.map((dog) => (<Dog key={dog.id} dog={dog} />))};
-      </div>
-      </div>
+        <div className="d-flex flex-row flex-wrap">
+          <div className="col-6">
+            <h1 className="text-center">Dogs</h1>
+               { this.state.dogs.map((dog) => (<Dog key={dog.id} dog={dog} />))};
+          </div>
+        </div>
       </div>
     );
   }
