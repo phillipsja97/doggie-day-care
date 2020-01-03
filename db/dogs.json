@@ -1,0 +1,56 @@
+{
+  "dog1": {
+    "name": "Hercules",
+    "owner": "Hank Williams Jr",
+    "description": "English Mastiff. Very loving but likes to horde baseballs.",
+    "imageUrl": "https://thechive.files.wordpress.com/2017/04/facts-about-the-sandlot-youll-remember-for-ev-er-11-photos-2.jpg?quality=100&strip=info&w=600"
+  },
+  "dog2": {
+    "name": "Hooch",
+    "owner": "Scott Turner",
+    "description": "Large French Mastiff.",
+    "imageUrl": "https://i.pinimg.com/originals/9d/39/82/9d39823fc648af3c34e9aafbd61d6909.jpg"
+  },
+  "dog3": {
+    "name": "Buddy",
+    "owner": "Josh Framm",
+    "description": "A Golden Retreiver. Long hair and golden yellow fur.",
+    "imageUrl": "https://coxrare.files.wordpress.com/2019/10/cbd-for-dogs.png?w=1200&h=627&crop=1"
+  },
+  "dog4": {
+    "name": "Lassie",
+    "owner": "Timmy Reily",
+    "description": "A collie you can count on.",
+    "imageUrl": "https://i.ytimg.com/vi/S1o0iRYSr4s/maxresdefault.jpg"
+  },
+  "dog5": {
+    "name": "Chance",
+    "owner": "Jamie Burnford",
+    "description": "White bull terrier. A little goofy and hates porcupines.",
+    "imageUrl": "https://barkpost.com/wp-content/uploads/2015/04/Homeward-Bound-II-screencaps-homeward-bound-19521666-480-320.jpg"
+  },
+  "dog6": {
+    "name": "Beethoven",
+    "owner": "Ryce Newton",
+    "description": "Big Saint Bernard. Can't miss him.",
+    "imageUrl": "https://i.pinimg.com/originals/99/ef/16/99ef16666fd142188b8ffb6d71ccb0c7.jpg"
+  },
+  "dog7": {
+    "name": "Petey",
+    "owner": "Spanky McFarland",
+    "description": "American Bulldog. Wierd coloration around his eyes.",
+    "imageUrl": "https://i.pinimg.com/originals/69/a2/e2/69a2e25e8cec80c24bd137f16037a06c.jpg"
+  },
+  "dog8": {
+    "name": "Pongo",
+    "owner": "Roger Dearly",
+    "description": "Large Dalmation dog. Has lots of kids.",
+    "imageUrl": "https://vignette.wikia.nocookie.net/disney/images/2/2c/20080826-jsm7f6rni9wmctr26n2nu1br7w.jpg/revision/latest?cb=20120723204346"
+  },
+  "dog9": {
+    "name": "Scooby Doo",
+    "owner": "Shaggy",
+    "description": "Large tan dog with black spots that can almost talk",
+    "imageUrl": "https://i.pinimg.com/originals/12/2a/85/122a852ae2cf0b467d90c4f96ac52241.png"
+  }
+}

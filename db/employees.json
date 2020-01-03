@@ -1,0 +1,17 @@
+{
+  "employee1": {
+    "firstName": "Steven",
+    "lastName": "Josephs",
+    "phoneNumber": "456-893-2456"
+  },
+  "employee2": {
+    "firstName": "Mary",
+    "lastName": "Johnson",
+    "phoneNumber": "456-903-1298"
+  },
+  "employee3": {
+    "firstName": "Jennifer",
+    "lastName": "Aberdeen",
+    "phoneNumber": "456-193-9829"
+  }
+}
