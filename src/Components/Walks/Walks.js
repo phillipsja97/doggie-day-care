@@ -1,4 +1,5 @@
 import React from 'react';
+import dogsData from '../../Helpers/Data/dogsData';
 
 class Walks extends React.Component {
   state = {
@@ -7,13 +8,15 @@ class Walks extends React.Component {
   }
 
   render() {
-    const { walk } = this.props;
+    const { walk, dog, employee } = this.props;
+    console.log(dog);
+    console.log(employee);
     return (
-          <div class="card col-4">
-            <div class="card-body">
-              <h5 class="card-title">Dog: {walk.dogId}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Date: {walk.date}</h6>
-              <p class="card-text">Scheduled Walker: {walk.employeeId}</p>
+      <div className="card col-4">
+            <div className="card-body">
+              <h5 className="card-title">Dog: {dog.name}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">Date: {walk.date}</h6>
+              <p className="card-text">Scheduled Walker: {employee.firstName} {employee.lastName}</p>
                 <button className="btn btn-outline-primary">Delete Walk</button>
                 <button className="btn btn-outline-primary">Add Another Walk</button>
             </div>
