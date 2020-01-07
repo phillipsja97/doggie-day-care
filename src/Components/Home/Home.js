@@ -63,7 +63,7 @@ class Home extends React.Component {
         }
         </div>
         <div className="d-flex flex-row flex-wrap">
-    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} />))}}
+    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} dog={this.state.dogs.find((x) => x.id === walk.dogId)} employee={this.state.employees.find((x) => x.id === walk.employeeId)} />))}}
         </div>
           <div className="d-flex flex-row flex-wrap">
             <div className="col-6">
