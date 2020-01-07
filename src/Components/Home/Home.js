@@ -57,8 +57,8 @@ class Home extends React.Component {
     return (
       <div className="App">
         <div className="d-flex justify-content-center" id="dogWalks">
-        { 
-        (this.state.showWalks) ? ( <button className="btn btn-danger hide-form" onClick={this.hideShowWalks}>X</button>)
+        {
+        (this.state.showWalks) ? ( <button className="btn btn-danger" onClick={this.hideShowWalks}>X</button>)
           : (<button className="btn btn-primary" onClick={this.setShowWalks}>Show Dog Walk Schedule</button>)
         }
         </div>
