@@ -15,6 +15,8 @@ class Home extends React.Component {
     walks: [],
     showWalks: false,
     showWalkForm: false,
+    walkToEdit: {},
+    editMode: false,
   }
 
   componentDidMount() {
@@ -55,8 +57,12 @@ class Home extends React.Component {
     this.setState({ showWalks: false });
   }
 
+  setWalkToEdit = (walk) => {
+    this.setState({ walkToEdit: walk });
+  }
+
   setEditMode = () => {
-    this.setState({ editMode: true });
+    this.setState({ editMode: true, showWalkForm: true });
   }
 
   setShowWalkForm = () => {
@@ -80,8 +86,22 @@ class Home extends React.Component {
       .catch((error) => console.error(error));
   }
 
+  updateWalk = (walkId, updatedWalk) => {
+    walksData.updateAWalk(walkId, updatedWalk)
+      .then(() => {
+        this.getWalks();
+        this.setState({ editMode: false, showWalkForm: false });
+      })
+      .catch((errorFromUpdateWalk) => (errorFromUpdateWalk));
+  }
+
+
   render() {
-    const { setShowWalks, hideShowWalks, setShowWalkForm } = this.props;
+    const {
+      setShowWalks,
+      hideShowWalks,
+      setShowWalkForm,
+    } = this.props;
     return (
       <div className="App">
         <div className="d-flex justify-content-center" id="dogWalks">
@@ -92,9 +112,9 @@ class Home extends React.Component {
         </div>
         <div className="d-flex flex-wrap justify-content-center">
           {
-            (this.state.showWalkForm) && <WalkForm dogs={this.state.dogs} employees={this.state.employees} addNewWalk={this.addNewWalk}/>
+            (this.state.showWalkForm) && <WalkForm dogs={this.state.dogs} employees={this.state.employees} addNewWalk={this.addNewWalk} editMode={this.state.editMode} walkToEdit={this.state.walkToEdit} updateWalk={this.updateWalk}/>
           }
-    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} dog={this.state.dogs.find((x) => x.id === walk.dogId)} employee={this.state.employees.find((x) => x.id === walk.employeeId)} showWalkForm={this.state.showWalkForm} deleteWalk={this.deleteWalk} />))}
+    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} dog={this.state.dogs.find((x) => x.id === walk.dogId)} employee={this.state.employees.find((x) => x.id === walk.employeeId)} showWalkForm={this.state.showWalkForm} deleteWalk={this.deleteWalk} setEditMode={this.setEditMode} editMode={this.state.editMode} walkToEdit={this.walkToEdit} setWalkToEdit={this.setWalkToEdit} updateWalk={this.updateWalk}/>))}
         <div className="addWalkButton">
       { (this.state.showWalks) && <button className="btn btn-primary" onClick={this.setShowWalkForm}>Add A New Walk</button> }
         </div>
