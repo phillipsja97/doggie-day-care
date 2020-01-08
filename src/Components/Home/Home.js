@@ -5,6 +5,8 @@ import Walks from '../Walks/Walks';
 import Employee from '../Employees/Employees';
 import employeesData from '../../Helpers/Data/employeesData';
 import walksData from '../../Helpers/Data/walksData';
+import WalkForm from '../WalkForm/WalkForm';
+import './Home.scss';
 
 class Home extends React.Component {
   state = {
@@ -12,6 +14,7 @@ class Home extends React.Component {
     employees: [],
     walks: [],
     showWalks: false,
+    showWalkForm: false,
   }
 
   componentDidMount() {
@@ -52,18 +55,41 @@ class Home extends React.Component {
     this.setState({ showWalks: false });
   }
 
+  setEditMode = () => {
+    this.setState({ editMode: true });
+  }
+
+  setShowWalkForm = () => {
+    this.setState({ showWalkForm: true });
+  }
+
+  addNewWalk = (newWalk) => {
+    walksData.saveNewWalk(newWalk)
+      .then(() => {
+        this.getWalks();
+        this.setState({ showWalkForm: false });
+      })
+      .catch((errorFromSaveWalk) => console.error(errorFromSaveWalk));
+  }
+
   render() {
-    const { setShowWalks, hideShowWalks } = this.props;
+    const { setShowWalks, hideShowWalks, setShowWalkForm } = this.props;
     return (
       <div className="App">
         <div className="d-flex justify-content-center" id="dogWalks">
         {
-        (this.state.showWalks) ? ( <button className="btn btn-danger" onClick={this.hideShowWalks}>X</button>)
+        (this.state.showWalks) ? (<button className="btn btn-danger" onClick={this.hideShowWalks}>X</button>)
           : (<button className="btn btn-primary" onClick={this.setShowWalks}>Show Dog Walk Schedule</button>)
         }
         </div>
-        <div className="d-flex flex-row flex-wrap">
-    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} dog={this.state.dogs.find((x) => x.id === walk.dogId)} employee={this.state.employees.find((x) => x.id === walk.employeeId)} />))}}
+        <div className="d-flex flex-wrap justify-content-center">
+          {
+            (this.state.showWalkForm) && <WalkForm dogs={this.state.dogs} employees={this.state.employees} addNewWalk={this.addNewWalk}/>
+          }
+    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} dog={this.state.dogs.find((x) => x.id === walk.dogId)} employee={this.state.employees.find((x) => x.id === walk.employeeId)} showWalkForm={this.state.showWalkForm} />))}
+        <div className="addWalkButton">
+      { (this.state.showWalks) && <button className="btn btn-primary" onClick={this.setShowWalkForm}>Add A New Walk</button> }
+        </div>
         </div>
           <div className="d-flex flex-row flex-wrap">
             <div className="col-6">

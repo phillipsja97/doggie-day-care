@@ -4,13 +4,11 @@ import dogsData from '../../Helpers/Data/dogsData';
 class Walks extends React.Component {
   state = {
     walks: [],
-    showWalks: false,
   }
 
   render() {
     const { walk, dog, employee } = this.props;
-    console.log(dog);
-    console.log(employee);
+    console.log(dog, employee);
     return (
       <div className="card col-4">
             <div className="card-body">
