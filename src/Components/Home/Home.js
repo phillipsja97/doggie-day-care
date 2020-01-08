@@ -72,6 +72,14 @@ class Home extends React.Component {
       .catch((errorFromSaveWalk) => console.error(errorFromSaveWalk));
   }
 
+  deleteWalk = (walkId) => {
+    walksData.deleteAWalk(walkId)
+      .then(() => {
+        this.getWalks();
+      })
+      .catch((error) => console.error(error));
+  }
+
   render() {
     const { setShowWalks, hideShowWalks, setShowWalkForm } = this.props;
     return (
@@ -86,7 +94,7 @@ class Home extends React.Component {
           {
             (this.state.showWalkForm) && <WalkForm dogs={this.state.dogs} employees={this.state.employees} addNewWalk={this.addNewWalk}/>
           }
-    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} dog={this.state.dogs.find((x) => x.id === walk.dogId)} employee={this.state.employees.find((x) => x.id === walk.employeeId)} showWalkForm={this.state.showWalkForm} />))}
+    { this.state.showWalks && this.state.walks.map((walk) => (<Walks key={walk.id} walk={walk} dog={this.state.dogs.find((x) => x.id === walk.dogId)} employee={this.state.employees.find((x) => x.id === walk.employeeId)} showWalkForm={this.state.showWalkForm} deleteWalk={this.deleteWalk} />))}
         <div className="addWalkButton">
       { (this.state.showWalks) && <button className="btn btn-primary" onClick={this.setShowWalkForm}>Add A New Walk</button> }
         </div>
