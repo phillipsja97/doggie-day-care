@@ -6,6 +6,12 @@ class Walks extends React.Component {
     walks: [],
   }
 
+  deleteWalkEvent = (e) => {
+    e.preventDefault();
+    const { deleteWalk, walk } = this.props;
+    deleteWalk(walk.id);
+  }
+
   render() {
     const { walk, dog, employee } = this.props;
     console.log(dog, employee);
@@ -15,7 +21,7 @@ class Walks extends React.Component {
               <h5 className="card-title">Dog: {dog.name}</h5>
               <h6 className="card-subtitle mb-2 text-muted">Date: {walk.date}</h6>
               <p className="card-text">Scheduled Walker: {employee.firstName} {employee.lastName}</p>
-                <button className="btn btn-outline-primary">Delete Walk</button>
+                <button className="btn btn-outline-primary" onClick={this.deleteWalkEvent}>Delete Walk</button>
                 <button className="btn btn-outline-primary">Add Another Walk</button>
             </div>
           </div>
